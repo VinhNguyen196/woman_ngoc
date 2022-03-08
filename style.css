@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+}
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 99vw;
+    height: 99vh;
+}
+.box {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.box-main {
+    width: 80%;
+    height: 85vh;
+    background: wheat;
+    border-radius: 30px;
+    display: flex;
+    opacity: 0.93;
+    box-shadow: 9px 11px 10px 6px black;
+}
+div.box-image {
+    height: inherit;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 1200px;
+    background-image: url('./2.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    filter: brightness(120%);
+}
+div.box-content {
+    padding: 100px;
+    padding-right: 50px;
+    color: teal;
+}
+.box-content h2 {
+    font-size: 3em;
+}
+.box-content h2,
+.box-content h3 {
+    color: red;
+    position: relative;
+    width: 350px;
+    transform: scaleX(0);
+    animation: text 3s ease forwards;
+    transform-origin: left;
+}
+.box-content h3 {
+    font-size: 1.8;
+    margin: 10px 0;
+    width: 150px;
+}
+.box-content h2::before,
+.box-content h3::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: teal;
+    transform: scaleX(0);
+    animation: text1 3.5s ease forwards;
+    transform-origin: right;
+}
+.box-content h2::before,
+.box-content h2 {
+    animation-delay: 1s;
+}
+
+@keyframes text {
+    to {
+        transform: scaleX(1);
+    }
+    from {
+        transform: scaleX(0);
+    }
+}
+@keyframes text1 {
+    to {
+        transform: scaleX(0);
+    }
+    from {
+        transform: scaleX(1);
+    }
+}
+.box-main p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+.box-content p:nth-child(3) {
+    animation: textP1 3s ease forwards;
+    animation-delay: 3.5s;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+.box-content p:nth-child(4) {
+    animation: textP1 4.5s ease forwards;
+    animation-delay: 6.5s;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+.box-content p:nth-child(5) {
+    animation: textP1 5.5s ease forwards;
+    animation-delay: 11s;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+@keyframes textP1 {
+    to {
+        transform: scaleX(1);
+    }
+    from {
+        transform: scaleX(0);
+    }
+}
+@keyframes textP2 {
+    to {
+        transform: scaleX(1);
+    }
+    from {
+        transform: scaleX(0);
+    }
+}
+div.box-image {
+    animation: anime4 4s ease;
+     animation-fill-mode: both;
+     animation-delay: 1s;
+     opacity: 0.8;
+}
+@keyframes anime4 {
+    to {
+        opacity: 1;
+    }
+    from {
+        opacity: 0.8;
+    }
+}
+ img {
+     animation: anime3 2s ease;
+     animation-fill-mode: both;
+     animation-delay: 2s;
+     opacity: 0;
+     width: 100%;
+     height: 100%;
+     mix-blend-mode: screen;
+     border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+ }
+ @keyframes anime3 {
+    to {
+        opacity: 0.6;
+    }
+    from {
+        opacity: 0;
+    }
+}
+.video-background {
+    position: absolute;
+    mix-blend-mode: screen;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    object-position: center;
+}
+div.icon {
+    text-align: center;
+    mix-blend-mode: multiply;
+}
+div.love {
+    display: flex;
+    justify-content: space-between;
+}
+div.love div {
+    border-radius: 10px;
+    box-shadow: 2px 1px 2px black;
+    overflow: hidden;
+    mix-blend-mode: multiply;
+}
+@keyframes hidden {
+    to {
+        opacity: 1;
+    }
+    from {
+        opacity: 0;
+    }
+}
+div.icon iframe {
+    opacity: 0;
+    animation: hidden 2s ease both;
+    animation-delay: 17s;
+}
+div.love div:nth-child(1) {
+    opacity: 0;
+    animation: hidden 2s ease both;
+    animation-delay: 19s;
+}
+div.love div:nth-child(2) {
+    opacity: 0;
+    animation: hidden 2s ease both;
+    animation-delay: 21s;
+}
+div.love div:nth-child(3) {
+    opacity: 0;
+    animation: hidden 2s ease both;
+    animation-delay: 23s;
+}
+iframe {
+    pointer-events: none;
+}

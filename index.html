@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-3 Celeration</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body onLoad="startAudio()">
+    <video class="video-background" playsinline autoplay muted loop>
+        <source src="effect_trim.mp4" type="video/mp4">
+    </video>
+    <div id="box">
+       <div id="box-main">
+            <div id="box-content">
+                <h2>Woman Day</h2>
+                <h3>8 tháng 3</h3>
+                <p>Đầu tiên là chúc mừng ngày quốc tế phụ nữ.</p>
+                <p>Chúc Ngọc mạnh khỏe, may mắn, xinh đẹp và luôn giữ được nụ cười đáng yêu này.</p>
+                <p>Đôi lời tâm sự: Tâm trạng của Vinh hay thay đổi bất thường, lúc thì hứng khởi, lúc thì nhạt nhòa, đây là đặc tính nhà Cua. Có gì Ngọc bỏ qua :v
+                </p>
+                <div id="icon">
+                    <iframe src="https://giphy.com/embed/1qYhrKyTQBS5C5qaFr" width="120" height="120" frameBorder="0"></iframe>
+                </div>
+                <div id="love">
+                    <div><iframe src="https://giphy.com/embed/WnTsYrfU1OXGE" width="90" height="90" frameBorder="0"></iframe></div>
+                    <div><iframe src="https://giphy.com/embed/l4Ki4biBSwhjyrS48" width="90" height="90" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                    <div><iframe src="https://giphy.com/embed/UYzNgRSTf9X1e" width="90" height="90" frameBorder="0"></iframe></div>
+                </div>
+            </div>
+            <div id="div-image">
+                <img src="./starr.jpg" id="back" />
+            </div>
+       </div>
+    </div>
+    <audio id="adio" autoplay loop>
+        <source src="./music_2.mp3" type="audio/mpeg" />
+    </audio>
+    <script type="text/javascript">
+        var aray = ["1.jpg", "3.jpg", "2.jpg"];
+        var div = document.getElementById("div-image");
+        document.getElementById("box").style.visibility  = "hidden";
+        document.getElementById("box-main").style.visibility  = "hidden";
+        document.getElementById("box-content").style.visibility  = "hidden";
+        document.getElementById("love").style.visibility  = "hidden";
+        document.getElementById("icon").style.visibility  = "hidden";
+        div.style.visibility = "hidden";
+        var im = document.getElementById("back");
+        div.removeChild(im);
+        var count = 0;
+        var body = document.getElementsByTagName("body")[0];
+        var run = () => setInterval(() => {
+            
+            if (count == aray.length) count = 0;
+            div.style.backgroundImage = "url('"+aray[count]+"')";
+            if (count == 0) {
+                div.style.backgroundPosition = "100% 77%";
+            } else if (count == 1) {
+                div.style.backgroundPosition = "50% 50%";
+            }
+                else if (count == 2) {
+                div.style.backgroundPosition = "45% 50%";
+            }
+            setTimeout(() => {
+                div.removeChild(im);
+            }, 300);
+            setTimeout(() => {
+                div.appendChild(im);
+            }, 300);
+            count++;
+        }, 5000);
+        var start = () => {
+            body.style.backgroundImage = "url('./screen.jpg')";
+            document.getElementById("box").className = "box";
+            document.getElementById("box-main").className = "box-main";
+            document.getElementById("box-content").className = "box-content";
+            div.className = "box-image";
+            document.getElementById("icon").className = "icon";
+            document.getElementById("love").className = "love";
+            document.getElementById("box").style.visibility  = "visible";
+            document.getElementById("box-main").style.visibility  = "visible";
+            document.getElementById("box-content").style.visibility  = "visible";
+            document.getElementById("icon").style.visibility  = "visible";
+            document.getElementById("love").style.visibility  = "visible";
+            div.style.visibility = "visible";
+            div.appendChild(im);
+        }
+        function startAudio() {
+            var promise = document.getElementById("adio").play();
+            if (promise !== undefined) {
+                promise.then(() => {
+                    //
+                    start();
+                    setTimeout(() => run(), 1000);
+                }).catch(error => {
+                    var div = document.createElement("div");
+                    div.setAttribute("id","fake");
+                    var button = document.createElement("button");
+                    button.textContent = "Let's get started";
+                    button.style.fontSize = "25px";
+                    button.style.borderRadius = "30px";
+                    button.style.padding = "10px";
+                    button.style.boxShadow = "0px 5px 5px pink";
+                    button.style.backgroundColor = "wheal";
+                    div.appendChild(button);
+                    div.style.textAlign = "center";
+                    div.style.width = "100%";
+                    div.style.height = "100%";
+                    div.style.position = "absolute";
+                    div.style.display = "flex";
+                    div.style.alignItems = "center";
+                    div.style.justifyContent = "center";
+                    div.style.top = "0px";
+                    div.style.background = "black";
+                    body.appendChild(div);
+                    button.onclick = () => {
+                        var tmp = document.getElementById("fake");
+                        document.getElementById("adio").play();
+                        body.removeChild(tmp);
+                        start();
+                        setTimeout(() => run(), 1000);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

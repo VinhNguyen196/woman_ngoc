@@ -39,7 +39,7 @@ div.box-image {
     filter: brightness(120%);
 }
 div.box-content {
-    padding: 50px;
+    padding: 100px;
     padding-right: 50px;
     color: teal;
 }

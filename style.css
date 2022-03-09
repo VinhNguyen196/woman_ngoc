@@ -22,10 +22,8 @@ body {
 .box-main {
     width: 80%;
     height: 85vh;
-    background: wheat;
     border-radius: 30px;
     display: flex;
-    opacity: 0.93;
     box-shadow: 9px 11px 10px 6px black;
 }
 div.box-image {
@@ -41,6 +39,8 @@ div.box-image {
 div.box-content {
     padding: 50px;
     padding-right: 50px;
+    opacity: 0.93;
+    background: wheat;
     color: teal;
 }
 .box-content h2 {
